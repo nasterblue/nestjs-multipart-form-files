@@ -1,4 +1,4 @@
-# Architecture
+# Demo
 ![Demo](./demo.png)
 
 ## Installation
