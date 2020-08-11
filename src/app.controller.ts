@@ -12,8 +12,14 @@ export class AppController {
   uploadFile(@UploadedFiles() files) {
     files.forEach((file) => {
       console.log(file);
-      if (file.size) {
-        console.log('File is deleted');
+      if (file.size === 0 || file.mimetype === 'application/octet-stream') {
+        console.log('File  deleted');
+      } else if (file.mimetype === 'application/json') {
+        //no change
+        console.log('File  no change');
+      } else {
+        // new/update
+        console.log('File  new/update');
       }
     });
     return files;

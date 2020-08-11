@@ -24,12 +24,16 @@
 
       // Get form
       var form = $('#fileUploadForm')[0];
-      const blob = new Blob();
       // Create an FormData object
       var data = new FormData(form);
 
-      data.append('files', blob, 'null-file1.naster');
-      data.append('files', blob, 'null-file2.naster');
+      data.append('files', new Blob(), 'null-file1.naster');
+      data.append('files', new Blob(), 'null-file2.naster');
+
+
+      data.append('files', new Blob([{ name: 'one', path: '/image/one.png' }], {type: "application/json"}));
+      data.append('files', new Blob([{ name: 'two', path: '/image/two.png' }], {type: "application/json"}));
+
       // If you want to add an extra field for the FormData
       data.append('CustomField', 'This is some extra data, testing');
 
